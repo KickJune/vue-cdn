@@ -56,5 +56,15 @@
         </v-main>
       </v-app>
     </div>
+    <script>
+      // 読み込み完了したら読み込み中divを削除する
+      addEventListener('load', () => {
+        const loading = document.getElementById('loading');
+        loading.style.opacity = 0;
+        loading.addEventListener('transitionend', () => {
+          loading.remove();
+        });
+      });
+    </script>
   </body>
 </html>
