@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue.js</title>
+    <link rel="stylesheet" href="https://unpkg.com/vuetify@3/dist/vuetify.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/@mdi/font@5/css/materialdesignicons.min.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js",
+          "vue-router": "https://unpkg.com/vue-router@4/dist/vue-router.esm-browser.js",
+          "@vue/devtools-api": "https://unpkg.com/@vue/devtools-api@6",
+          "vuetify": "https://unpkg.com/vuetify@3/dist/vuetify.esm.js"
+        }
+      }
+    </script>
+    <style>
+      #app[v-cloak] {
+        opacity: 0;
+      }
+
+      #app {
+        transition: opacity 1s;
+        opacity: 1;
+      }
+    </style>
+    <script type="module" src="app.js"></script>
+  </head>
+  <body>
+    <div id="app" v-cloak>
+      <v-app>
+        <v-navigation-drawer v-model="drawer">
+          <v-container>Drawer</v-container>
+        </v-navigation-drawer>
+        <v-app-bar>
+          <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+          <v-app-bar-title tag="h1">Vue.js</v-app-bar-title>
+          <v-btn to="/">First</v-btn>
+          <v-btn to="/second">Second</v-btn>
+          <v-btn to="/third">Third</v-btn>
+        </v-app-bar>
+        <v-main>
+          <v-container>
+            <router-view></router-view>
+          </v-container>
+        </v-main>
+      </v-app>
+    </div>
+  </body>
+</html>
